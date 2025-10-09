@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RemedyBG Debug App.exe",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "remedybg",
+            "args": [
+                "${workspaceFolder}\\build\\main.exe"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\data\\",
+        },
+            {
+            "name": "Launch App.exe",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/src/",
+            "console": "externalTerminal"
+        }
+    ]
+}

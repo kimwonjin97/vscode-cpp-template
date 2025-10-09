@@ -1,0 +1,167 @@
+{
+    // 기본 세팅
+    "hexeditor.columnWidth": 21,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "window.zoomLevel": 1,
+    "git.autofetch": true,
+    "editor.fontFamily": "'FiraCode Nerd Font'",
+    "editor.fontWeight": "600",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Black Italic",
+
+    // vim 관련 세팅
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.smartcase": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        },
+        // {
+        //     "before": [
+        //         "/"
+        //     ],
+        //     "commands": [
+        //         "actions.find",
+        // ]
+        // }
+
+    ],
+    "vim.visualModeKeyBindings": [
+    ],
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-p>": false,
+    },
+
+    "vim.statusBarColorControl": true,
+
+    "custom-ui-style.stylesheet": {
+        ".statusbar-item-label[aria-label=\"-- NORMAL --\"], .statusbar-item-label[aria-label=\"-- SURROUND INPUT --\"], .statusbar-item-label[aria-label=\"-- EASYMOTION INPUT --\"], .statusbar-item-label[aria-label='Already at oldest change'], .statusbar-item-label[aria-label=':nohlsearch']": "background-color: #89b4fa !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- INSERT --\"]": "background-color: #a6e3a1  !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- REPLACE --\"]": "background-color: #f38ba8 !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- VISUAL --\"], .statusbar-item-label[aria-label=\"-- VISUAL BLOCK --\"], .statusbar-item-label[aria-label=\"-- VISUAL LINE --\"]": "background-color: #cba6f7 !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        // multi cursor
+        ".statusbar-item-label[aria-label=\"-- NORMAL --  MULTI CURSOR\"]": "background-color: #89b4fa !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- INSERT --  MULTI CURSOR\"]": "background-color: #a6e3a1 !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- REPLACE --  MULTI CURSOR\"]": "background-color: #f38ba8 !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label=\"-- VISUAL --  MULTI CURSOR\"]": "background-color: #cba6f7 !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;",
+        ".statusbar-item-label[aria-label^=':']": "background-color: #f9e2af !important; color: #181825 !important; display: inline-block !important; padding: 0 80px !important; font-weight: bold !important;"
+    },
+
+    // C/C++ 세팅
+    "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.formatting": "clangFormat",
+
+    // Header 문구 관련 설정.
+    "psi-header.config": {
+        // Force header insertion at the top of the file
+        "forceToTop": true,
+        // Custom variable values
+        "author": "Wonjin Kim",
+        "company": "Wonjin Kim",
+        "copyrightHolder": "Wonjin Kim"
+    },
+    "psi-header.lang-config": [
+        {
+            "language": "cpp",
+            // Enables Compact Mode (single-line comments)
+            "begin": "",
+            "end": "",
+            "prefix": "// " // The single-line comment style
+        }
+    ],
+    "psi-header.templates": [
+        {
+            "language": "cpp",
+            "template": [
+                "FileName: <<filename>>",
+                "Copyright (c) <<yeartoyear(2025, now)>> <<company>>. All rights reserved.",
+            ]
+        }
+    ],
+    "psi-header.changes-tracking": {
+        "isActive": true,
+        "enforceHeader": true,
+        "autoHeader": "autoSave",
+        "replace": [
+            "FileName:",
+            "Copyright (c)"
+        ],
+        "include": [
+            "cpp",
+            "c",
+            "h",
+            "hpp",
+            "cc",
+            "cxx",
+            "hh",
+            "hxx"
+        ],
+        "exclude": [
+            "json",
+            "jsonc"
+        ]
+    },
+    // GitHub Copilot 설정
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f87",
+        "statusBar.noFolderBackground": "#005f87",
+        "statusBar.debuggingBackground": "#005f87",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    // "terminal.integrated.profiles.windows": {
+    //     "PowerShell": {
+    //         "source": "PowerShell",
+    //         "icon": "terminal-powershell"
+    //     },
+    //     "Command Prompt": {
+    //         "path": [
+    //             "${env:windir}\\Sysnative\\cmd.exe",
+    //             "${env:windir}\\System32\\cmd.exe"
+    //         ],
+    //         "args": [],
+    //         "icon": "terminal-cmd"
+    //     },
+    //     "Git Bash": {
+    //         "source": "Git Bash"
+    //     },
+    //     "Windows PowerShell": {
+    //         "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    //     }
+    // },
+    // "terminal.integrated.defaultProfile.windows": "PowerShell",
+}
