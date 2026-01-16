@@ -1,22 +1,25 @@
 @echo off
+setlocal
+cd /D "%~dp0"
 
-REM Show C++ compiler version
-cl /Bv
 
-REM FLAGS Start
+
+rem FLAGS Start
 set compiler=               -nologo &:: Suppress Startup Banner
-set compiler=%compiler%     -Od     &:: No Optimization
+set compiler=%compiler%     -Od    &:: No Optimization
 set compiler=%compiler%     /std:c++17 &:: Set C++ version to C++17
 set compiler=%compiler%     -Oi     &:: Use assembly intrinsics where possible
 set compiler=%compiler%     -Gm-    &:: Disable minimal rebuild
 set compiler=%compiler%     -GR-    &:: Disable runtime type info (C++)
 set compiler=%compiler%     -EHa-   &:: Disable exception handling (C++)
-set compiler=%compiler%     -W4     &:: Display warnings up to level 4
-@REM set compiler=%compiler%     -WXd     &:: Treat all warnings as errors
+rem set compiler=%compiler%     -Wall     &:: Display warnings up to level 4
+rem set compiler=%compiler%     -WX     &:: Treat all warnings as errors
 set compiler=%compiler%     -wd4201 &:: Nameless struct/union
 set compiler=%compiler%     -wd4100 &:: Unused function parameter
 set compiler=%compiler%     -wd4189                &:: Local variable not referenced
 set compiler=%compiler%     -wd4505                &:: Unreferenced local function has been removed
+set compiler=%compiler%		-wd4042 &::
+set compiler=%compiler%		-wd4190 &::
 
 set debug=        -FC &:: Produce the full path of the source code file
 set debug=%debug% -Z7 &:: Produce debug information
@@ -26,9 +29,9 @@ set win32_link= 			-incremental:no  	   &:: incremental build
 set win32_link=%win32_link% -opt:ref               &:: Remove unused functions
 REM FLAGS ends
 
-set Definition= -DINTERNAL=1 -DWIN32=1 -DSAMPLE=1 &:: Define preprocessor macros
+set Definition= -DOS_WINDOWS=1 -DINTERNAL=1 -DWIN32=1 -DSAMPLE=1 &:: Define preprocessor macros
 
-set CommonCompilerFlags= %compiler% -MTd %debug% 
+set CommonCompilerFlags= %compiler% -MTd %debug% /utf-8
 set CommonLinkerFlags= %win32_link% user32.lib gdi32.lib winmm.lib
 
 
@@ -43,5 +46,5 @@ REM cl %CommonCompilerFlags% ../src/main.cpp /link -subsystem:windows,5.1 %Commo
 REM 64-bit build
 del *.pdb > NUL 2> NUL
 REM Optimization switches /O2 /Oi /fp:fast
-cl %CommonCompilerFlags% ../src/main.cpp /link %CommonLinkerFlags% 
+cl %CommonCompilerFlags% ../src/win32_main.cpp /link %CommonLinkerFlags% 
 popd

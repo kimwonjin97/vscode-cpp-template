@@ -1,0 +1,61 @@
+{
+	"folders":
+	[
+		{
+			"path": "..",
+			/*"folder_exclude_patterns": ["build", ".vs"],*/
+			/*"follow_symlinks": true*/
+			"folder_exclude_patterns":
+			[
+				"build",
+				".vs"
+			],
+			"follow_symlinks": true,
+		},
+	],
+	"build_systems":
+	[
+		{
+			"selector": "source.cpp",
+			"file_patterns": [ "*.c", "*.cpp", "*.h", "*.hpp", "*.hlsl"],
+			"name": "Project Build",
+			"working_dir": "$folder",
+
+			// "variants":
+			// [
+			// 	{
+			// 		"name": "Terminus Build",
+			// 		"target": "terminus_exec",
+
+			// 		"cancel": "terminus_cancel_build",
+			// 		// "title" : "Build Output",
+			// 		// "auto_close": false,
+			// 		// "timeit": true,
+			// 		"focus": true, 
+
+			// 		// "post_window_hooks": 
+			// 		// [
+			// 			// ["unselect_others"],
+			// 		// 	["select_to_left"]	
+			// 		// ],
+			// 	}
+			// ],
+
+			"osx":
+			{
+				"shell_cmd": "./build.bat",
+				"file_regex": "(^.*)[:](\\d+)[:](\\d+)[:].+$",
+			},
+			"windows":
+			{
+				"shell_cmd": " .\\build.bat",
+				"file_regex": "^(.*)\\((\\d+),?(\\d+)?\\)\\s?:\\s([^\n]+)",
+			},
+		}
+	],
+	"settings":
+    {
+        "tab_size": 4,
+    },
+    
+}

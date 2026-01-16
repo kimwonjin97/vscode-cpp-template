@@ -4,7 +4,7 @@
         {
             "label": "Build with build.bat",
             "type": "shell",
-            "command": "${workspaceFolder}\\src\\build.bat",
+            "command": "${workspaceFolder}\\build.bat",
             "group": {
                 "kind": "build",
                 "isDefault": true
